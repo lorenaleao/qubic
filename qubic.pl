@@ -119,57 +119,66 @@ faca_movimento(max, ['-'|T], ['x'|T]).
 faca_movimento(min, ['-'|T], ['o'|T]).
 faca_movimento(Player, [H|T1], [H|T2]) :- faca_movimento(Player, T1, T2).
 
-alfa_beta(max,Board,Valor):-
-    open('output.txt',write,NextBoard),
-    ab_minimax(max,Board,-inf,inf,Valor, NextBoard).
-
-% ab_minimax(max,Board,_,_,1):-
-%     eh_estado_ganhador_x(Board), !.
-% ab_minimax(min,Board,_,_,-1):-
-%     eh_estado_ganhador_o(Board), !.
-
-ab_minimax(max,Board,_,_,-1, NextBoard):-
+alfa_beta(max,Board,Valor, NextBoard):-
+    open('output.txt',write,OutputFile),
+    ab_minimax(max,Board,-inf,inf,Valor, NextBoard, OutputFile).
+    
+ab_minimax(max,Board,_,_,-1, NextBoard, OutputFile):-
     eh_estado_ganhador_o(Board),
-    write(NextBoard, '+\n'), !.
-ab_minimax(min,Board,_,_,1, NextBoard):-
+    write(OutputFile, '-----ab_minimax (max)----\n\n'),
+    write(OutputFile, '=================\n'), print_board(OutputFile, Board),
+    write(OutputFile, 'o won \n').
+ab_minimax(min,Board,_,_,1, NextBoard, OutputFile):-
     eh_estado_ganhador_x(Board),  
-    write(NextBoard, '+\n'), !.
-ab_minimax(_,Board,_,_,0, NextBoard):-
+    write(OutputFile, '-----ab_minimax (min)----\n\n'),
+    write(OutputFile, '=================\n'), print_board(OutputFile, Board),
+    write(OutputFile, 'x won\n').
+ab_minimax(_,Board,_,_,0, NextBoard, OutputFile):-
     eh_velha(Board), 
-    write(NextBoard, '+\n'), !. % isso pode ser substituído add Profundidade
-ab_minimax(max,Board,Alfa,Beta,Valor, NextBoard):-
+    write(OutputFile, '-----ab_minimax (velha)----\n\n'),
+    write(OutputFile, '=================\n'), print_board(OutputFile, Board),
+    write(OutputFile, 'velha\n'). % isso pode ser substituído add Profundidade
+ab_minimax(max,Board,Alfa,Beta,Valor, NextBoard, OutputFile):-
     filhos(Board, max, Filhos),
-    ab_max_filhos(Filhos,Alfa,Beta,-inf,Valor, NextBoard).
-ab_minimax(min,Board,Alfa,Beta,Valor, NextBoard):-
+    ab_max_filhos(Filhos,Alfa,Beta,-inf,Valor, NB, NextBoard, OutputFile).
+ab_minimax(min,Board,Alfa,Beta,Valor, NextBoard, OutputFile):-
     filhos(Board, min, Filhos),
-    ab_min_filhos(Filhos,Alfa,Beta,inf,Valor, NextBoard).
+    ab_min_filhos(Filhos,Alfa,Beta,inf,Valor, NB, NextBoard, OutputFile).
 
-ab_max_filhos([],_,_,Max,Max, NextBoard).
+ab_max_filhos([],_,_,Max,Max, NextBoard, NextBoard, OutputFile).
     % eh_estado_final(Board), !.
-ab_max_filhos([H|T],Alfa,Beta,Max1,Max, NextBoard):-
-    ab_minimax(min,H,Alfa,Beta,Valor, NextBoard),
+ab_max_filhos([H|T],Alfa,Beta,Max1,Max, NB, NextBoard, OutputFile):-
+    write(OutputFile, '-----ab_max 1----\n\n'),
+    write(OutputFile, '=================\n'), print_board(OutputFile, H),
+    ab_minimax(min,H,Alfa,Beta,Valor, NextBoardX, OutputFile),
+    write(OutputFile, '-----ab_max 2----\n\n'),
+    write(OutputFile, 'Alfa: '), write(OutputFile, Alfa), write(OutputFile, '\n'),
+    write(OutputFile, 'Beta: '), write(OutputFile, Beta), write(OutputFile, '\n'),
+    write(OutputFile, 'Max1: '), write(OutputFile, Max1), write(OutputFile, '\n'),
     ( 
         Valor > Beta -> % corte Beta : não trata Fs
         Max = Beta,
-        write(NextBoard, 'corte beta\n') 
+        NextBoard = H,
+        write(OutputFile, 'corte beta\n') 
         ; (
         max(Valor,Alfa,Alfa1), % atualiza Alfa
         max(Valor,Max1,Max2),
-        ab_max_filhos(T, Alfa1, Beta, Max2, Max, NextBoard))
+        (Max2 == Valor -> NB1 = H; true),
+        ab_max_filhos(T, Alfa1, Beta, Max2, Max, NB1, NextBoard, OutputFile))
     ).
 
-ab_min_filhos([],_,_,Min,Min, NextBoard).
+ab_min_filhos([],_,_,Min,Min, NextBoard, NextBoard, OutputFile).
     % eh_estado_final(Board), !.
-ab_min_filhos([H|T],Alfa,Beta,Min1,Min, NextBoard):-
-    ab_minimax(max,H,Alfa,Beta,Valor, NextBoard),
+ab_min_filhos([H|T],Alfa,Beta,Min1,Min, NB, NextBoard, OutputFile):-
+    ab_minimax(max,H,Alfa,Beta,Valor, NextBoardX, OutputFile),
     (
         Alfa > Valor -> % corte Alfa: não trata Fs
         Min = Alfa,
-        write(NextBoard, 'corte alfa\n') 
+        write(OutputFile, 'corte alfa\n') 
         ; (
         min(Valor,Beta,Beta1), % atualiza Beta
         min(Valor,Min1,Min2),
-        ab_min_filhos(T, Alfa, Beta1, Min2, Min, NextBoard))
+        ab_min_filhos(T, Alfa, Beta1, Min2, Min, NB1, NextBoard, OutputFile))
     ).
 
 % valor(l, 1).
@@ -227,14 +236,14 @@ run(Stream) :-
     fail. 
 run(Stream).
 
-print_board([]) :- write('==============='), nl, nl, !.
-print_board([A, B, C | Board]) :-
-    tab(2), write(A),
-    write('  │ '),
-    write(B),
-    write(' │  '),
-    write(C), nl,
+print_board(OutputFile, []) :- write(OutputFile, '=================\n\n'), !.
+print_board(OutputFile, [A, B, C | Board]) :-
+    write(OutputFile, '   '), write(OutputFile, A),
+    write(OutputFile, '  │ '),
+    write(OutputFile, B),
+    write(OutputFile, ' │  '),
+    write(OutputFile, C), write(OutputFile, '\n'),
     (Board \= [] ->
-        write('─────┼───┼─────'), nl;
+        write(OutputFile, '──────┼───┼──────\n');
         true),
-    print_board(Board).
+    print_board(OutputFile, Board).
