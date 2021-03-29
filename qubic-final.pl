@@ -169,11 +169,11 @@ move(P,(3,2,3),[X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X
 move(P,(3,3,3),[X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,X20,X21,X22,X23,X24,X25,X26,X27,X28,X29,X30,X31,X32,X33,X34,X35,X36,X37,X38,X39,X40,X41,X42,X43,X44,X45,X46,X47,X48,X49,X50,X51,X52,X53,X54,X55,X56,X57,X58,X59,X60,X61,X62,X63,X64|R],[X1,X2,X3,X4,X5,X6,X7,X8,X9,X10,X11,X12,X13,X14,X15,X16,X17,X18,X19,X20,X21,X22,X23,X24,X25,X26,X27,X28,X29,X30,X31,X32,X33,X34,X35,X36,X37,X38,X39,X40,X41,X42,X43,X44,X45,X46,X47,X48,X49,X50,X51,X52,X53,X54,X55,X56,X57,X58,X59,X60,X61,X62,X63,P|R]) :- var(X64). 
 
 %%%%%
-%%  Record a move: record(+,+,+).
+%%  Record a move: record(+,+,+,+).
 %%%%%
-record(Player,X,Y) :- 
+record(Player,X,Y,Z) :- 
    retract(board(B)), 
-   mark(Player,B,X,Y),
+   mark(Player,B,X,Y,Z),
    assert(board(B)).
 
 %%%%% 
@@ -272,18 +272,18 @@ spy(Player,Position,Value) :-
 spy(_,_,_). % do nothing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% For testing, use h(+,+) to record human move,
+%%% For testing, use h(+,+,+) to record human move,
 %%% supply coordinates. Then call c (computer plays).
 %%% Use s to show board.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-h(X,Y) :- 
-   record(x,X,Y), 
+h(X,Y,Z) :- 
+   record(x,X,Y,Z), 
    showBoard.
 
 c :- 
    board(B), 
-   alpha_beta(o,2,B,-200,200,(X,Y),_Value), 
-   record(o,X,Y),
+   alpha_beta(o,2,B,-200,200,(X,Y,Z),_Value), 
+   record(o,X,Y,Z),
    showBoard.
 
 showBoard :- 
