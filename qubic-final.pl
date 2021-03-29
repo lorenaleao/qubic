@@ -416,12 +416,11 @@ value(Board,E) :-
 % using minimax procedure with alpha-beta cutoff.
 % Computer (o) searches for best tic tac toe move, 
 % Human player is x.
-% Adapted from L. Sterling and E. Shapiro, The Art of Prolog, MIT Press, 1986.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 :- assert(lookahead(2)).
 :- dynamic spy/0.  % debug calls to alpha_beta
-:- assert(spy).    % Comment out stop spy.
+% :- assert(spy).    % Comment out stop spy.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 search(Position,Depth,(Move,Value)) :- 
