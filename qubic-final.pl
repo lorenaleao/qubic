@@ -293,14 +293,111 @@ win([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_
 %%%%%
 %%  A line is open if each position is either free or equals the Player
 %%%%%
-open([Z1,Z2,Z3|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player).
-open([_,_,_,Z1,Z2,Z3|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player).
-open([_,_,_,_,_,_,Z1,Z2,Z3],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player).
-open([Z1,_,_,Z2,_,_,Z3,_,_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player).
-open([_,Z1,_,_,Z2,_,_,Z3,_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player).
-open([_,_,Z1,_,_,Z2,_,_,Z3],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player).
-open([Z1,_,_,_,Z2,_,_,_,Z3],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player).
-open([_,_,Z1,_,Z2,_,Z3,_,_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player).
+open([Z1,Z2,Z3,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,Z1,Z2,Z3,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,Z1,Z2,Z3,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,Z1,Z2,Z3,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,Z2,Z3,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,Z2,Z3,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,Z2,Z3,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,Z2,Z3,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,Z2,Z3,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,Z2,Z3,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,Z2,Z3,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,Z2,Z3,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,Z2,Z3,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,Z2,Z3,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,Z2,Z3,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,Z2,Z3,Z4],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+%%%%%% vertical lines in each level
+open([Z1,_,_,_,Z2,_,_,_,Z3,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,Z1,_,_,_,Z2,_,_,_,Z3,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,Z1,_,_,_,Z2,_,_,_,Z3,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,Z1,_,_,_,Z2,_,_,_,Z3,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,Z2,_,_,_,Z3,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,Z2,_,_,_,Z3,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,Z2,_,_,_,Z3,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,Z2,_,_,_,Z3,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,Z2,_,_,_,Z3,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,Z2,_,_,_,Z3,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,Z2,_,_,_,Z3,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,Z2,_,_,_,Z3,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,Z2,_,_,_,Z3,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,Z2,_,_,_,Z3,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,Z2,_,_,_,Z3,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,Z2,_,_,_,Z3,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+%%%%% diagonals in each level
+
+open([Z1,_,_,_,_,Z2,_,_,_,_,Z3,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,Z1,_,_,Z2,_,_,Z3,_,_,Z4,_,_,_|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,Z2,_,_,_,_,Z3,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,Z2,_,_,Z3,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,Z2,_,_,_,_,Z3,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,Z2,_,_,Z3,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,Z2,_,_,_,_,Z3,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,Z2,_,_,Z3,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+%%%%%% 3d vertical lines
+
+open([Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+%%%%%% 3d horizontal lines
+open([Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+%%%%%% 3d diagonals
+open([_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+open([_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+%%%%%% diagonals across levels
+open([Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+
+
+%%%%%% pilares
+
+open([Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
+open([_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z1,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z2,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z3,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,Z4|_],Player) :- (var(Z1) | Z1 == Player),(var(Z2) | Z2 == Player), (var(Z3) | Z3 == Player), (var(Z4) | Z4 == Player).
 
 %%%%%
 %% Calculate the value of a position, o maximizes, x minimizes.
@@ -336,7 +433,7 @@ alpha_beta(Player,0,Position,_Alpha,_Beta,_NoMove,Value) :-
 
 alpha_beta(Player,D,Position,Alpha,Beta,Move,Value) :- 
    D > 0, 
-   findall((X,Y),mark(Player,Position,X,Y),Moves), 
+   findall((X,Y,Z),mark(Player,Position,X,Y,Z),Moves), 
    Alpha1 is -Beta, % max/min
    Beta1 is -Alpha,
    D1 is D-1, 
