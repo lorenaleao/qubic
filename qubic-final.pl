@@ -309,7 +309,34 @@ showBoard :-
    write('    '),mark(Z49),write(' '),mark(Z50),write(' '),mark(Z51),write(' '),mark(Z52),nl,
    write('    '),mark(Z53),write(' '),mark(Z54),write(' '),mark(Z55),write(' '),mark(Z56),nl,
    write('    '),mark(Z57),write(' '),mark(Z58),write(' '),mark(Z59),write(' '),mark(Z60),nl,
-   write('    '),mark(Z61),write(' '),mark(Z62),write(' '),mark(Z63),write(' '),mark(Z64),nl.
+   write('    '),mark(Z61),write(' '),mark(Z62),write(' '),mark(Z63),write(' '),mark(Z64),nl,
+   nl,  write('    '),  write('-------'), nl,nl.
+
+showBoard(B) :- 
+   B = [Z1,Z2,Z3,Z4,Z5,Z6,Z7,Z8,Z9,Z10,Z11,Z12,Z13,Z14,Z15,Z16,
+          Z17,Z18,Z19,Z20,Z21,Z22,Z23,Z24,Z25,Z26,Z27,Z28,Z29,Z30,Z31,Z32,
+          Z33,Z34,Z35,Z36,Z37,Z38,Z39,Z40,Z41,Z42,Z43,Z44,Z45,Z46,Z47,Z48,
+          Z49,Z50,Z51,Z52,Z53,Z54,Z55,Z56,Z57,Z58,Z59,Z60,Z61,Z62,Z63,Z64], 
+   write('    '),mark(Z1),write(' '),mark(Z2),write(' '),mark(Z3),write(' '),mark(Z4),nl,
+   write('    '),mark(Z5),write(' '),mark(Z6),write(' '),mark(Z7),write(' '),mark(Z8),nl,
+   write('    '),mark(Z9),write(' '),mark(Z10),write(' '),mark(Z11),write(' '),mark(Z12),nl,
+   write('    '),mark(Z13),write(' '),mark(Z14),write(' '),mark(Z15),write(' '),mark(Z16),nl,
+   nl,
+   write('    '),mark(Z17),write(' '),mark(Z18),write(' '),mark(Z19),write(' '),mark(Z20),nl,
+   write('    '),mark(Z21),write(' '),mark(Z22),write(' '),mark(Z23),write(' '),mark(Z24),nl,
+   write('    '),mark(Z25),write(' '),mark(Z26),write(' '),mark(Z27),write(' '),mark(Z28),nl,
+   write('    '),mark(Z29),write(' '),mark(Z30),write(' '),mark(Z31),write(' '),mark(Z32),nl,
+   nl,
+   write('    '),mark(Z33),write(' '),mark(Z34),write(' '),mark(Z35),write(' '),mark(Z36),nl,
+   write('    '),mark(Z37),write(' '),mark(Z38),write(' '),mark(Z39),write(' '),mark(Z40),nl,
+   write('    '),mark(Z41),write(' '),mark(Z42),write(' '),mark(Z43),write(' '),mark(Z44),nl,
+   write('    '),mark(Z45),write(' '),mark(Z46),write(' '),mark(Z47),write(' '),mark(Z48),nl,
+   nl,
+   write('    '),mark(Z49),write(' '),mark(Z50),write(' '),mark(Z51),write(' '),mark(Z52),nl,
+   write('    '),mark(Z53),write(' '),mark(Z54),write(' '),mark(Z55),write(' '),mark(Z56),nl,
+   write('    '),mark(Z57),write(' '),mark(Z58),write(' '),mark(Z59),write(' '),mark(Z60),nl,
+   write('    '),mark(Z61),write(' '),mark(Z62),write(' '),mark(Z63),write(' '),mark(Z64),nl,
+   nl,  write('    '),  write('-------'), nl,nl.
  
 s :- showBoard.
 
